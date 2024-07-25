@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SELOT V1</title>
+  </head>
+  <body>
+    <div class="slot-machine">
+      <div class="slot">
+        <span id="slot1">🍒</span>
+      </div>
+      <div class="slot">
+        <span id="slot2">🍋</span>
+      </div>
+      <div class="slot">
+        <span id="slot3">🍉</span>
+      </div>
+    </div>
+    <button onclick="spin()">Spin</button>
+    <div id="result"></div>
+    <div class="balance">
+      <p>Debit : <span id="balance">0</span></p>
+    </div>
+    <button onclick="deposit()">Deposit</button>
+    <button onclick="withdraw()">Withdraw</button>
+    <br>
+    <input type="range" id="myRange" min="500" max="1000000" step="1500" value="500">
+    <p>Bet: <span id="jumlah">Rp,500</span></p>
+    <br />
+    <button class="auto-spin" data-spins="15" onclick="startAutoSpin(15)">
+      Buy Spin
+    </button>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
