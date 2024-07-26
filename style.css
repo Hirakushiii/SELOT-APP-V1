@@ -4,15 +4,16 @@ body {
     text-align: center;
     background-color: #f0f0f0;
     padding: 20px;
-    border: 5px solid #d9534f; /* Border merah untuk body */
+    /* border: 5px solid #d9534f; Border merah untuk body */
     border-radius: 10px; /* Membuat sudut border melengkung */
+    overflow: hidden;
 }
 
 /* Gaya slot machine */
 .slot-machine {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    margin: 10px 0 20px 0;
     padding: 10px;
     border-radius: 10px;
 }
@@ -225,6 +226,10 @@ button.auto-spin[data-spins="1000"]:active {
     margin-top: 20px;
     font-size: 1.5em;
     font-weight: bold;
+}
+.Informasi{
+    padding-top: 50px ;
+    text-decoration: none;
 }
 
 @keyframes spin {
