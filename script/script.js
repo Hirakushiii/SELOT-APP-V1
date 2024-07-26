@@ -61,7 +61,7 @@ const values = {
     "🍦": 4600,
     "​🎰​": 15000, //JACKPOT
 };
-let balance = 0 || parseInt(getBalances('balance'))
+let balance = parseInt(getBalances('balance')) || 0
 let spinning = false;
 let spinCost = 1000;
 let spinCount = 0;
@@ -71,6 +71,7 @@ document.getElementById("balance").innerText = `Rp ${balance.toLocaleString()}`;
   
 // Fungsi untuk memperbarui saldo
 function updateBalance(amount) {
+    balance = 
     balance += amount;
     updateBalances(balance)
     document.getElementById("balance").innerText = balance.toLocaleString();
@@ -198,13 +199,13 @@ function deposit() {
     if (!isNaN(parsedAmount) && parsedAmount > 0) {
         updateBalance(parsedAmount)
         // DepositBalance(parsedAmount)
-        // location.reload()
         alert(
             `Deposit berhasil! Saldo Anda sekarang Rp ${balance.toLocaleString()}`
         );
     } else {
         alert("Jumlah tidak valid.");
     }
+    // location.reload()
 }
   
 // Fungsi untuk menarik saldo (withdraw)
@@ -217,6 +218,7 @@ function withdraw() {
         alert(
             `Penarikan berhasil! Saldo Anda sekarang Rp ${balance.toLocaleString()}`
         );
+        location.reload()
     } else {
         alert("Jumlah tidak valid atau saldo tidak mencukupi.");
     }
