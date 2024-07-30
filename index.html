@@ -1,43 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SELOT V1</title>
-  </head>
-  <body>
-    <div class="slot-machine">
-      <div class="slot">
-        <span id="slot1">🍒</span>
-      </div>
-      <div class="slot">
-        <span id="slot2">🍋</span>
-      </div>
-      <div class="slot">
-        <span id="slot3">🍉</span>
-      </div>
-    </div>
-    <button onclick="spin()">Spin</button>
-    <div id="result"></div>
-    <div class="balance">
-      <p>Debit : <span id="balance">0</span></p>
-    </div>
-    <button onclick="deposit()">Deposit</button>
-    <button onclick="withdraw()">Withdraw</button>
-    <br>
-    <input type="range" id="myRange" min="500" max="1000000" step="1500" value="500">
-    <p>Bet: <span id="jumlah">Rp,500</span></p>
-    <br />
-    <button class="auto-spin" data-spins="15" onclick="startAutoSpin(15)">
-      Auto Spin 15x
-    </button>
-    <br><br>
-    <a href="/information.html" class="Informasi">CEK INFORMASI SLOT</a>
-    <script src="
-    https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js
-    "></script>
-    <script src="/script/script.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/styling.css">
+    <link rel="stylesheet" media="screen" href="/library/particles-js/demo/css/style.css">
+</head>
+<body>
+    <span id="particles-js" class="absolute"></span>
+    <section class="bg-white dark:bg-gray-900">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
+            <h1 class="mt-10 mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">DEMO SELOT V1</h1>
+            <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">Selamat datang Kawannn....<br>#STOPJUDOL #JUDOLMEMBUATMUTERLIHATBODOH</p>
+            <form class="w-full max-w-md mx-auto">   
+                <label for="default-email" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Email sign-up</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 rtl:inset-x-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>                          
+                    </div>
+                    <input type="text" id="input-value" class="block w-full p-4 ps-12 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your name here..." required />
+                    <button type="button" id="input-btn" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Masuk</button>
+                </div>
+            </form>
+        </div>
+        <div class="bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900 w-full h-full absolute top-0 left-0 z-0"></div>
+    </section>
+    <script src="/library/particles-js/particles.js"></script>
+    <script src="/library/particles-js/demo/js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  </body>
+    <script src="/script/script.js"></script>
+</body>
 </html>
