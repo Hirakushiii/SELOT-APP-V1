@@ -1,10 +1,27 @@
-document.querySelector('#Balance').innerHTML = toIdr(getStorage('balance'))
+if (localStorage.getItem('account-name') === null) {
+    async function redirect() {
+        await 
+            Swal.fire({
+                backdrop: `
+                rgba(0,0,0,.8)
+                left top
+                no-repeat
+                `,
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Silahkan Login Terlebih Dahulu!",
+                });
+        window.location.href = '/'
+    }
+    redirect()
+}
+document.querySelector('#Balance').innerHTML = (getStorage('balance') === null) ? 0 : toIdr(getStorage('balance'));
 
 document.querySelector('#Deposit').addEventListener('click', async () =>{
     document.querySelector('#modal-parent').innerHTML = await modalFragment('Deposit' , 'SETOR')
     document.querySelector('#confirm-btn').addEventListener('click', async () =>{
         const DepositValue = document.querySelector('#deposit-value').value
-        if (!isNaN(DepositValue) && DepositValue > 0 && DepositValue <= getStorage('balance')) {
+        if (typeof(DepositValue) === 'string' && DepositValue > 0) {
             await Swal.fire({
                 title: "Deposit Berhasil",
                 text: `Kamu deposit dengan total ${toIdr(DepositValue)}!`,

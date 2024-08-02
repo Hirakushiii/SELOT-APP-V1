@@ -3,7 +3,7 @@ if (localStorage.getItem('account-name') === null) {
         await 
             Swal.fire({
                 backdrop: `
-                rgba(0,0,0,0)
+                rgba(0,0,0,.8)
                 left top
                 no-repeat
                 `,
