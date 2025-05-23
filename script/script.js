@@ -18,6 +18,7 @@ const Input_btn = document.querySelector('#input-btn').addEventListener('click',
                 icon: "success"
             });
         localStorage.setItem('account-name', values.value)
+        localStorage.setItem('desc-account', 'Your Description')
         localStorage.setItem('balance', 0)
         localStorage.setItem('blur-balance', true)
         window.location.href = './app/home.html'

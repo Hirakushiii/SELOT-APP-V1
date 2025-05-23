@@ -15,84 +15,88 @@ if (localStorage.getItem('account-name') === null) {
     }
     redirect()
 }
+let balance = parseInt(localStorage.getItem('balance')) || 0;
+
 // Cookies.set('balance', 100000)
 // localStorage.setItem('balance', 0);
 
 const symbols = [
-    "🍒", "🍋", "🍉", "🍇", "🍓", "🍍", "🍏", "🍆", "🍈", "🥭", "🍑",
-    "🍎", "🍊", "🍐", "🍔", "🍕", "🍲", "🍜", "🍱", "🍣", "🍙", "🍚", 
-    "🍛", "🍝", "🍠", "🍢", "🍥", "🍘", "🍿", "🥟", "🥠", "🥡", "🥢", 
-    "🥣", "🥤", "🍶", "🍵", "🍽", "🥄", "🍩", "🍪", "🍫", "🍬", 
-    "🍭", "🍮", "🍯", "🍰", "🎂", "🍨", "🍧", "🍡", "🍦","​🎰​"
+    "0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟",
+    // "🍎", "🍊", "🍐", "🍔", "🍕", "🍲", "🍜", "🍱", "🍣", "🍙", "🍚", 
+    // "🍛", "🍝", "🍠", "🍢", "🍥", "🍘", "🍿", "🥟", "🥠", "🥡", "🥢", 
+    // "🥣", "🥤", "🍶", "🍵", "🍽", "🥄", "🍩", "🍪", "🍫", "🍬", 
+    // "🍭", "🍮", "🍯", "🍰", "🎂", "🍨", "🍧", "🍡", "🍦",
+    "​#️⃣"
 ];
 const values = {
-    "🍒": 1000,
-    "🍋": 500,
-    "🍉": 2000,
-    "🍇": 3000,
-    "🍓": 1500,
-    "🍍": 2500,
-    "🍏": 800,
-    "🍆": 1200,
-    "🍈": 1800,
-    "🥭": 2200,
-    "🍑": 8000,
-    "🍎": 600,
-    "🍊": 700,
-    "🍐": 800,
-    "🍔": 1000,
-    "🍕": 1100,
-    "🍲": 1200,
-    "🍜": 1300,
-    "🍱": 1400,
-    "🍣": 1500,
-    "🍛": 1600,
-    "🍝": 1700,
-    "🍠": 1800,
-    "🍢": 1900,
-    "🍥": 2000,
-    "🍘": 2100,
-    "🍿": 2200,
-    "🥟": 2300,
-    "🥠": 2400,
-    "🥡": 2500,
-    "🥢": 2600,
-    "🥣": 2700,
-    "🥤": 2800,
-    "🍶": 2900,
-    "🍵": 3000,
-    "🍽": 3200,
-    "🥄": 3300,
-    "🍩": 3400,
-    "🍪": 3500,
-    "🍫": 3600,
-    "🍬": 3700,
-    "🍭": 3800,
-    "🍮": 3900,
-    "🍯": 4000,
-    "🍰": 4100,
-    "🎂": 4200,
-    "🍨": 4300,
-    "🍧": 4400,
-    "🍡": 4500,
-    "🍦": 4600,
-    "​🎰​": 15000, //JACKPOT
+    "0️⃣": 500,
+    "1️⃣": 2000,
+    "2️⃣": 3500,
+    "3️⃣": 5500,
+    "4️⃣": 7500,
+    "5️⃣": 9500,
+    "6️⃣": 11500,
+    "7️⃣": 15000,
+    "8️⃣": 12000,
+    "9️⃣": 13000,
+    "🔟": 14000,
+    "​#️⃣​": 20000, //JACKPOT
+    // "🍎": 600,
+    // "🍊": 700,
+    // "🍐": 800,
+    // "🍔": 1000,
+    // "🍕": 1100,
+    // "🍲": 1200,
+    // "🍜": 1300,
+    // "🍱": 1400,
+    // "🍣": 1500,
+    // "🍛": 1600,
+    // "🍝": 1700,
+    // "🍠": 1800,
+    // "🍢": 1900,
+    // "🍥": 2000,
+    // "🍘": 2100,
+    // "🍿": 2200,
+    // "🥟": 2300,
+    // "🥠": 2400,
+    // "🥡": 2500,
+    // "🥢": 2600,
+    // "🥣": 2700,
+    // "🥤": 2800,
+    // "🍶": 2900,
+    // "🍵": 3000,
+    // "🍽": 3200,
+    // "🥄": 3300,
+    // "🍩": 3400,
+    // "🍪": 3500,
+    // "🍫": 3600,
+    // "🍬": 3700,
+    // "🍭": 3800,
+    // "🍮": 3900,
+    // "🍯": 4000,
+    // "🍰": 4100,
+    // "🎂": 4200,
+    // "🍨": 4300,
+    // "🍧": 4400,
+    // "🍡": 4500,
+    // "🍦": 4600,
 };
-let balance = parseInt(getBalances('balance')) || 0
 let spinning = false;
 let spinCost = 500;
 let spinCount = 0;
 let jackpotSpinCount = 0;
 let autoSpinCount = 0;
+// console.log(balance);
 document.getElementById("balance").innerText = `Rp ${balance.toLocaleString()}`;
+
   
 // Fungsi untuk memperbarui saldo
-function updateBalance(amount) {
-    balance = 
-    balance += amount;
-    updateBalances(balance)
-    document.getElementById("balance").innerText = balance.toLocaleString();
-}  
+async function updateBalance(amount) {
+    // await balance -= amount;
+    await localStorage.setItem('balance', balance -= amount);
+    // console.log(balance);
+    document.getElementById("balance").innerText = `Rp ${balance.toLocaleString()}`;
+};  
 // Fungsi untuk mendapatkan simbol acak
 function getRandomSymbol() {
     return symbols[Math.floor(Math.random() * symbols.length)];
@@ -117,7 +121,7 @@ function spin() {
         return;
     }
     spinning = true;
-    updateBalance(-spinCost);
+    updateBalance(spinCost);
     spinCount++;
     jackpotSpinCount++;
   
@@ -157,14 +161,14 @@ function spin() {
         let symbol3 = slot3.innerText;
   
         let winAmount = 0;
-        const jackpotChance = 8; //ALGORITMA JACKPOT. (KECIL KEMUNGKINAN JACKPOT) 0 > 10 (PASTI LANGSUNG JACKPOT)
+        const jackpotChance = 5; //ALGORITMA JACKPOT. (KECIL KEMUNGKINAN JACKPOT) 0 > 10 (PASTI LANGSUNG JACKPOT)
         
         if (Math.floor(Math.random() * (100 - 0 + 1)) + 0 < jackpotChance) {
-            symbol1 = symbol2 = symbol3 = "​🎰​";
-            winAmount = (values["​🎰​"] * 2) + spinCost;
+            symbol1 = symbol2 = symbol3 = "​#️⃣​";
+            winAmount = (values["​#️⃣​"] * 2) + spinCost;
             jackpotSpinCount = 0;
         }else {
-            if (symbol1 === '​🎰' && symbol2 === '​🎰' || symbol1 === '​🎰' && symbol3 === '​🎰' || symbol2 === '​🎰' && symbol3 === '​🎰') {
+            if (symbol1 === '#️⃣' && symbol2 === '#️⃣' || symbol1 === '#️⃣' && symbol3 === '#️⃣' || symbol2 === '#️⃣' && symbol3 === '#️⃣') {
                 return;
             }else if (symbol1 === symbol2 && symbol2 === symbol3) {
                 winAmount = (values[symbol1] * 6) + spinCost;
@@ -179,11 +183,13 @@ function spin() {
             }
         }
         if (symbol1 === symbol2 && symbol2 === symbol3) {
+            tambahBalances(winAmount);
             result.innerText = `JACKPOTTTTT..... Selamat Anda mendapatkan Rp ${winAmount.toLocaleString()}!`;
-            tambahBalances(winAmount);
+            // console.log(balance);
         }else if (winAmount > 0) {
-            result.innerText = `Selamat Anda mendapatkan Rp ${winAmount.toLocaleString()}!`;
             tambahBalances(winAmount);
+            result.innerText = `Selamat Anda mendapatkan Rp ${winAmount.toLocaleString()}!`;
+            // console.log(balance);
         } else {
             result.innerText = "Kamu Belum Beruntung, Silahkan Coba Kembali";
         }
@@ -197,7 +203,12 @@ function spin() {
     animateSpin(slot2, 500);
     animateSpin(slot3, 1000);
 }
-  
+function all_in() {
+    rangeSlider.value = balance;
+    const nilaiFormatted = 'Rp,' + balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") //CONVERT TO IDR
+    jumlahDisplay.textContent = nilaiFormatted;
+    spinCost = balance;
+}
 // Fungsi untuk memulai spin otomatis
 function startAutoSpin(count) {
     if (spinning) return;
@@ -226,14 +237,15 @@ function withdraw() {
 }
 function updateBalances(value) {
     localStorage.setItem('balance', value);
+    document.getElementById("balance").innerText = `Rp ${value.toLocaleString()}`;
 }
 function getBalances(key) {
     return localStorage.getItem(key);
 }
-function tambahBalances(nilai) {
-    let balanceSaatIni = parseInt(getBalances('balance')); // Jika belum ada, set nilai awal menjadi 0// Hitung balance baru
-    let balanceBaru = balanceSaatIni + nilai;
-    updateBalances(balanceBaru);
+async function tambahBalances(nilai) {
+    balance += parseInt(nilai);
+    updateBalances(balance);
+    // let balanceBaru = parseInt(getBalances('balance')) + nilai;
 }
 // function kurangiBalance() {
 //     // let balanceBaru = parseInt(balance) - parseInt(nilai);

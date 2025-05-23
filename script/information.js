@@ -17,69 +17,86 @@ if (localStorage.getItem('account-name') === null) {
 }
 
 const values = {
-    "​🎰​ (JACKPOT)": 15000,
-    "🍒": 1000,
-    "🍋": 500,
-    "🍉": 2000,
-    "🍇": 3000,
-    "🍓": 1500,
-    "🍍": 2500,
-    "🍏": 800,
-    "🍆": 1200,
-    "🍈": 1800,
-    "🥭": 2200,
-    "🍑": 8000,
-    "🍎": 600,
-    "🍊": 700,
-    "🍐": 800,
-    "🍔": 1000,
-    "🍕": 1100,
-    "🍲": 1200,
-    "🍜": 1300,
-    "🍱": 1400,
-    "🍣": 1500,
-    "🍛": 1600,
-    "🍝": 1700,
-    "🍠": 1800,
-    "🍢": 1900,
-    "🍥": 2000,
-    "🍘": 2100,
-    "🍿": 2200,
-    "🥟": 2300,
-    "🥠": 2400,
-    "🥡": 2500,
-    "🥢": 2600,
-    "🥣": 2700,
-    "🥤": 2800,
-    "🍶": 2900,
-    "🍵": 3000,
-    "🍽": 3200,
-    "🥄": 3300,
-    "🍩": 3400,
-    "🍪": 3500,
-    "🍫": 3600,
-    "🍬": 3700,
-    "🍭": 3800,
-    "🍮": 3900,
-    "🍯": 4000,
-    "🍰": 4100,
-    "🎂": 4200,
-    "🍨": 4300,
-    "🍧": 4400,
-    "🍡": 4500,
-    "🍦": 4600,
+    "​#️⃣ (JACKPOT)​": 20000, //JACKPOT
+    "0️⃣": 500,
+    "1️⃣": 2000,
+    "2️⃣": 3500,
+    "3️⃣": 5500,
+    "4️⃣": 7500,
+    "5️⃣": 9500,
+    "6️⃣": 11500,
+    "7️⃣": 15000,
+    "8️⃣": 12000,
+    "9️⃣": 13000,
+    "🔟": 14000,
+    // "​🎰​ (JACKPOT)": 15000,
+    // "🍒": 1000,
+    // "🍋": 500,
+    // "🍉": 2000,
+    // "🍇": 3000,
+    // "🍓": 1500,
+    // "🍍": 2500,
+    // "🍏": 800,
+    // "🍆": 1200,
+    // "🍈": 1800,
+    // "🥭": 2200,
+    // "🍑": 8000,
+    // "🍎": 600,
+    // "🍊": 700,
+    // "🍐": 800,
+    // "🍔": 1000,
+    // "🍕": 1100,
+    // "🍲": 1200,
+    // "🍜": 1300,
+    // "🍱": 1400,
+    // "🍣": 1500,
+    // "🍛": 1600,
+    // "🍝": 1700,
+    // "🍠": 1800,
+    // "🍢": 1900,
+    // "🍥": 2000,
+    // "🍘": 2100,
+    // "🍿": 2200,
+    // "🥟": 2300,
+    // "🥠": 2400,
+    // "🥡": 2500,
+    // "🥢": 2600,
+    // "🥣": 2700,
+    // "🥤": 2800,
+    // "🍶": 2900,
+    // "🍵": 3000,
+    // "🍽": 3200,
+    // "🥄": 3300,
+    // "🍩": 3400,
+    // "🍪": 3500,
+    // "🍫": 3600,
+    // "🍬": 3700,
+    // "🍭": 3800,
+    // "🍮": 3900,
+    // "🍯": 4000,
+    // "🍰": 4100,
+    // "🎂": 4200,
+    // "🍨": 4300,
+    // "🍧": 4400,
+    // "🍡": 4500,
+    // "🍦": 4600,
 };
 
 function Modal() {
     document.querySelector('#edit-modal').classList.toggle('hidden');
+}
+function CloseModal() {
+    document.querySelector('#authentication-modal').classList.add('hidden');
+    // document.querySelector('#close-modal').addEventListener('click', () => {
+    // });
 }
 function table(){
     Object.entries(values).forEach(([namaBuah, nilaiBuah]) =>{
         const nilaiFormatted = 'Rp, ' + nilaiBuah.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
         document.querySelector('#table-body').innerHTML += TableFragment(namaBuah, nilaiFormatted)
     })
-    document.querySelector('#total').innerHTML = `Total Prize: ${Object.entries(values).length}`
-    document.querySelector('#acc-desc').innerHTML = getStorage('desc-account') || 'Undefined Description'
+    document.querySelector('#total').innerHTML = `Total : ${Object.entries(values).length}`
+    document.querySelector('#acc-desc').innerHTML = getStorage('desc-account') || 'Your Description'
     document.querySelector('#acc-name').innerHTML = getStorage('account-name') || 'Undefined Account Name'
     document.querySelector('#profile-pict').innerHTML = GetFirstWord(getStorage('account-name')) || ''
 }
@@ -151,16 +168,16 @@ function TableFragment(Name , Value) {
 }
 function ModalFragment(name , desc) {
     return `
-        <div tabindex="-1" class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div tabindex="-1" class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full" id="authentication-modal">
         <div class="relative p-4 w-full max-w-md max-h-full">
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                        Sign in to our platform
+                        Personalisasi Akun
                     </h3>
-                    <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="authentication-modal" onclick="Modal()">
+                    <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" onclick="CloseModal()">
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                         </svg>

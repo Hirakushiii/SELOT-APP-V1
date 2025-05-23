@@ -10,24 +10,30 @@
   <body class="text-center font-sans bg-[#f0f0f0] p-5 rounded-xl overflow-hidden">
     <div class="flex justify-center mt-3 mb-5 p-7 rounded-xl">
       <div class="slot hover:scale-110">
-        <span id="slot1">🍒</span>
+        <span id="slot1">1️⃣</span>
       </div>
       <div class="slot hover:scale-110">
-        <span id="slot2">🍋</span>
+        <span id="slot2">2️⃣</span>
       </div>
       <div class="slot hover:scale-110">
-        <span id="slot3">🍉</span>
+        <span id="slot3">3️⃣</span>
       </div>
     </div>
     <div id="result"></div>
     <div class="balance">
-      <p>Debit : <span id="balance">0</span></p>
+      <p>Balance : <span id="balance">0</span></p>
     </div>
     <br>
     <input type="range" id="myRange" min="500" max="1000000" step="1500" value="500">
     <p>Bet: <span id="jumlah">Rp, 500</span></p>
     <br />
-    <button class="auto-spin btn-manual bg-[#218838]" data-spins="15" onclick="startAutoSpin(15)">
+    <button class="auto-spin btn-manual " data-spins="15" onclick="startAutoSpin(10)">
+      Auto Spin 10x
+    </button>
+    <button class="auto-spin btn-manual" data-spin="allin" onclick="all_in()">
+      ALL IN
+    </button>
+    <button class="auto-spin btn-manual " data-spins="15" onclick="startAutoSpin(15)">
       Auto Spin 15x
     </button>
     <button type="button" class="text-red-600 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-md p-2.5 text-center block mx-auto mt-10 items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500" onclick="spin()">

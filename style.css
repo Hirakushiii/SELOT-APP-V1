@@ -83,6 +83,17 @@
 .btn-manual.auto-spin[data-spins="15"]:active {
     background-color: #1565C0; /* Biru lebih gelap lagi */
 }
+.btn-manual.auto-spin[data-spins="allin"] {
+    background-color: #218838; /* Biru */
+}
+
+.btn-manual.auto-spin[data-spins="allin"]:hover {
+    background-color: #020508; /* Biru lebih gelap */
+}
+
+.btn-manual.auto-spin[data-spins="allin"]:active {
+    background-color: #1565C0; /* Biru lebih gelap lagi */
+}
 
 #result {
     margin-top: 20px;
